@@ -1,0 +1,106 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/auth/sign-up:
+    post:
+      summary: 'Sign up a new user'
+      operationId: signUpANewUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must contain only letters and numbers. Must be at least 1 character. Must not be greater than 32 characters.'
+                  example: gcohoriqwjgegqxo
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: elaina16@example.com
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters. Must not be greater than 32 characters.'
+                  example: 'Sq3w&`COAfa-3'
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/auth/sign-in:
+    post:
+      summary: 'Sign in the user'
+      operationId: signInTheUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: grant62@example.org
+                password:
+                  type: string
+                  description: 'Must be at least 6 characters. Must not be greater than 32 characters.'
+                  example: 'iBeLlev]Zy'
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/sign-out:
+    post:
+      summary: 'Sign out current user'
+      operationId: signOutCurrentUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
